@@ -1,6 +1,6 @@
 FROM openjdk:8
 
-ENV SBT_VERSION 0.13.15
+ENV SBT_VERSION 1.2.4
 
 RUN \
   curl -L -o sbt-$SBT_VERSION.deb http://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
