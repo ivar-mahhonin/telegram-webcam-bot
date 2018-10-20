@@ -10,3 +10,6 @@ lazy val root = (project in file(".")).
     name := "telegram-webcam-bot",
     libraryDependencies ++= botDependencies
   )
+
+fork in run := true
+cancelable in Global := true
