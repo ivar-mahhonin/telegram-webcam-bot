@@ -15,9 +15,11 @@ bot-app {
 }
 
 ```
-#
+## Run application:
+1. Create docker image: `docker build -t telegram_bot:v1 .`
+2. Run docker container: `docker run telegram_bot:v1`
 
-###Web camera:
+##Web camera:
 You can use your old android phone as a web camera. 
 For that you can use an app called [IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en_US).
 

@@ -10,8 +10,8 @@ RUN \
   apt-get install sbt && \
   sbt sbtVersion
 
-WORKDIR /HelloWorld
-ADD . /HelloWorld
+WORKDIR /TelegramBot
+ADD . /TelegramBot
 
 
 CMD sbt run
