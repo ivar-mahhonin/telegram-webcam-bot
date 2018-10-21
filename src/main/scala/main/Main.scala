@@ -1,10 +1,11 @@
 import java.util
+import wvlet.log.LogSupport
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import bot.Bot
 import com.typesafe.config.ConfigFactory
 
-object Main {
+object Main extends LogSupport {
   def main(args: Array[String]) {
     implicit val system = ActorSystem("my-system")
     implicit val materializer = ActorMaterializer()
@@ -20,7 +21,7 @@ object Main {
       val bot = new Bot(token, users, imageSource)
       bot.run()
 
-      println(s"Bot is running.")
+      info(s"Bot is running.")
 
       system.registerOnTermination(() => {
         println("Shutting down bot.")
@@ -28,9 +29,9 @@ object Main {
       })
     }
     catch {
-      case e => {
-        println("Is your settings file defined?")
-        println(e)
+      case e: Throwable => {
+        error("Is your settings file defined?")
+        error(e.toString)
         system.terminate()
       }
     }
