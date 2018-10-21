@@ -38,7 +38,7 @@ class Bot(val token: String, val allowedUsersIds: util.List[Integer], imageSourc
     msg.from match {
       case Some(x: User) => {
         reply("Greetings!").onComplete((c) => {
-          reply(s"Your used id is: ${x.id}").onComplete((c) => {
+          reply(s"Your user id is: ${x.id}").onComplete((c) => {
             reply("Send it to bot administrator in order to authenticate.")
           })
         })
