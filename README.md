@@ -38,4 +38,11 @@ Don't forget to add `/photo.jpg` at the end of the link.
 ## My setup: 
 ### Raspberry Pi 3 model B + and Samsung Galaxy Ace 4
 
-I managed to run 
+I managed to run whole stack using:
+
+1. Raspberry Pi 3 model B + (rasbian + docker installed).
+2. Old Samsung Galaxy Ace 4 (with [IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en_US) app)
+3. 20800 mAh power bank.
+
+![Alt text](https://www.dropbox.com/s/1h8p4rot6c1srl2/bot-setup.jpg?raw=1  "Webcam setup")
+
