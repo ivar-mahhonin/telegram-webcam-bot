@@ -1,10 +1,13 @@
 package bot
+
 import java.util
-import com.bot4s.telegram.api.{ChatActions, Polling, TelegramBot}
+
 import com.bot4s.telegram.api.declarative.Commands
+import com.bot4s.telegram.api.{ChatActions, Polling, TelegramBot}
 import com.bot4s.telegram.clients.ScalajHttpClient
 import com.bot4s.telegram.methods.SendPhoto
 import com.bot4s.telegram.models.{InputFile, Message, User}
+
 import scala.concurrent.Future
 
 class Bot(val token: String, val allowedUsersIds: util.List[Integer], imageSource: String) extends TelegramBot
@@ -29,6 +32,19 @@ class Bot(val token: String, val allowedUsersIds: util.List[Integer], imageSourc
         request(SendPhoto(msg.source, framePng)).onComplete((completed) => reply("Here you are!"))
       }
     })
+  }
+
+  onCommand("start") { implicit msg: Message =>
+    msg.from match {
+      case Some(x: User) => {
+        reply("Greetings!").onComplete((c) => {
+          reply(s"Your used id is: ${x.id}").onComplete((c) => {
+            reply("Send it to bot administrator in order to authenticate.")
+          })
+        })
+      }
+      case None => sendUserNotRecognisedMessage(msg)
+    }
   }
 
   private def sendImageSourceNotDefinedMessage(msg: Message): Future[Message] = {
@@ -58,9 +74,7 @@ class Bot(val token: String, val allowedUsersIds: util.List[Integer], imageSourc
           sendAuthFailedMessage(msg)
         }
       }
-      case None => {
-        sendUserNotRecognisedMessage(msg)
-      }
+      case None => sendUserNotRecognisedMessage(msg)
     }
   }
 }

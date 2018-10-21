@@ -23,7 +23,7 @@ bot-app {
 
 ```
 
-##Web camera:
+## Web camera:
 You can use your old android phone as a web camera. 
 For that you can use an app called [IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en_US).
 
@@ -33,3 +33,7 @@ For that you can use an app called [IP Webcam](https://play.google.com/store/app
 Use it inside `src/main/resources/settings.conf` as a `image-source` parameter. 
 Don't forget to add `/photo.jpg` at the end of the link.
 
+## My setup: 
+### Raspberry Pi 3 model B + and Samsung Galaxy Ace 4
+
+I managed to run 
