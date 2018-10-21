@@ -2,10 +2,17 @@
 Small telegram webcam bot written in Scala to send me latest pictures of my chinchilla :)
 
 #
+
+## Run application:
+1. Clone repository with: `git clone https://github.com/ivarmah/telegram-webcam-bot.git`
+2. Go to the directory.
+3. Define your bot settings at `src/main/resources/settings.conf.`
+4. Create docker image: `docker build -t telegram_bot:v1 .`
+5. Run docker container: `docker run telegram_bot:v1`
+
 Provide your own settings.conf file at `src/main/resources/settings.conf`.
 
 Structure should be following:
-
 
 ```
 bot-app {
@@ -15,9 +22,6 @@ bot-app {
 }
 
 ```
-## Run application:
-1. Create docker image: `docker build -t telegram_bot:v1 .`
-2. Run docker container: `docker run telegram_bot:v1`
 
 ##Web camera:
 You can use your old android phone as a web camera. 

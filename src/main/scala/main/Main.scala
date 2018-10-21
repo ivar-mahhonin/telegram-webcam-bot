@@ -10,18 +10,29 @@ object Main {
     implicit val materializer = ActorMaterializer()
     implicit val executionContext = system.dispatcher
 
-    val conf = ConfigFactory.load()
-    val token: String = conf.getString("bot-app.token")
-    val users: util.List[Integer] = conf.getIntList("bot-app.users")
-    val imageSource: String = conf.getString("bot-app.image-source")
-    val bot = new Bot(token, users, imageSource)
-    bot.run()
+    try {
+      val conf = ConfigFactory.load()
 
-    println(s"Bot is running.")
+      val token: String = conf.getString("bot-app.token")
+      val users: util.List[Integer] = conf.getIntList("bot-app.users")
+      val imageSource: String = conf.getString("bot-app.image-source")
 
-    system.registerOnTermination(() => {
-      println("Shutting down bot.")
-      bot.shutdown()
-    })
+      val bot = new Bot(token, users, imageSource)
+      bot.run()
+
+      println(s"Bot is running.")
+
+      system.registerOnTermination(() => {
+        println("Shutting down bot.")
+        bot.shutdown()
+      })
+    }
+    catch {
+      case e => {
+        println("Is your settings file defined?")
+        println(e)
+        system.terminate()
+      }
+    }
   }
 }
