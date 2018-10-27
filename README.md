@@ -1,8 +1,9 @@
 # telegram-webcam-bot
 Small telegram webcam bot written in Scala (with [bot4s](https://github.com/bot4s/telegram)) to send me latest pictures of my chinchilla :)
 
+If you also miss your pet while you are away, you might find this handy!
 
-![Alt text](https://www.dropbox.com/s/j7fg4tm1rqwf18z/wbcambot.gif?raw=1 "Webcam bot")
+![Alt text](https://www.dropbox.com/s/oooqavdihjbnu2q/bot.gif?raw=1 "Webcam bot")
 #
 
 ## Run application:
